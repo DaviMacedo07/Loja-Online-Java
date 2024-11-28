@@ -1,13 +1,22 @@
 package Classes;
 
 import abstractClass.Usuario;
+import abstractClass.Vendas;
 
 public class Cliente extends Usuario {
-    private String endereco;
 
-    public Cliente(String nome, String email, String senha, String endereco) {
+    private double desconto = 0.10;
+    private String endereco;
+    public Cliente(String nome, String email, String senha) {
         super(nome, email, senha);
-        this.endereco = endereco;
+    }
+
+    public double getDesconto() {
+        return desconto;
+    }
+
+    public void setDesconto(double desconto) {
+        this.desconto = desconto;
     }
 
     public String getEndereco() {
@@ -20,8 +29,8 @@ public class Cliente extends Usuario {
 
     @Override
     public void exibirInformacoes() {
-        System.out.println("Cliente: " + getNome() + ", Email: " + getEmail() +
+        System.out.println("Cliente: " + getNome() +
+                ", Email: " + getEmail() +
                 ", Endereço: " + endereco);
     }
 }
-

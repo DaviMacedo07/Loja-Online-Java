@@ -3,20 +3,21 @@ package Classes;
 import abstractClass.Produto;
 
 public class Roupa extends Produto {
-    private String tamanho;
+
+    private char tamanho;
     private String cor;
 
-    public Roupa(String nome, double preco, int estoque, String tamanho, String cor) {
-        super(nome, preco, estoque);
+    public Roupa(String marca, double preco, int quantidade, char tamanho, String cor) {
+        super(marca, preco, quantidade);
         this.tamanho = tamanho;
         this.cor = cor;
     }
 
-    public String getTamanho() {
+    public char getTamanho() {
         return tamanho;
     }
 
-    public void setTamanho(String tamanho) {
+    public void setTamanho(char tamanho) {
         this.tamanho = tamanho;
     }
 
@@ -30,9 +31,9 @@ public class Roupa extends Produto {
 
     @Override
     public void exibirInformacoes() {
-        System.out.println("Roupa: " + getNome() + ", Preço: " + getPreco() +
-                ", Estoque: " + getEstoque() + ", Tamanho: " + tamanho +
-                ", Cor: " + cor);
+        System.out.println("Marca da Roupa: " + getMarca() +
+                ",Preço: " + getPreco() +
+                ", Tamanho: " + getTamanho() +
+                ", Cor: " + getCor());
     }
 }
-

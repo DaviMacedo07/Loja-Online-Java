@@ -2,35 +2,57 @@ package Test;
 
 import Classes.*;
 import abstractClass.Produto;
+import abstractClass.Processavel;
+import abstractClass.Vendas;
 
 public class Main {
     public static void main(String[] args) {
-        Cliente cliente = new Cliente("João Silva", "joao@gmail.com", "1234", "Rua A, 123");
-        Vendedor vendedor = new Vendedor("Maria Lopes", "maria@loja.com", "senha123", "12345678000100", 10.0);
+       Cliente cliente = new Cliente("Davi", "davi@1234", "123");
+       cliente.setEndereco("Rua Egidio de Oliveira 108");
+       cliente.exibirInformacoes();
 
-        Produto camisa = new Roupa("Camisa Polo", 59.90, 10, "M", "Azul");
-        Produto celular = new Eletronico("Smartphone", 1200.00, 5, "Samsung", 12);
+       System.out.println("_*_*_*_*_*_*_*_CLIENTE_*_*_*_*_*_*_*_");
+       System.out.println();
 
-        Carrinho carrinho = new Carrinho();
-        carrinho.adicionarProduto(camisa);
-        carrinho.adicionarProduto(celular);
+       Vendedor vendedor1 = new Vendedor("Jordan da Silva", "jordan@123", "333", 0.12, 600);
+       vendedor1.exibirInformacoes();
 
-        Pedido pedido = new Pedido(carrinho, cliente);
+       System.out.println("_*_*_*_*_*_*_*VENDEDOR*_*_*_*_*_*_*_");
+       System.out.println();
 
-        // Calcula o total do carrinho
-        double total = carrinho.calcularTotal();
-        System.out.println("Total do pedido: R$ " + total);
+       Roupa roupa = new Roupa("Hering", 250, 4, 'M', "Amarela");
+       roupa.exibirInformacoes();
 
-        // Cria a instância de Pagamento passando o valor e o método
-        Pagamento pagamento = new Pagamento();
 
-        // Processa o pedido e realiza o pagamento
-        pedido.processarPedido();
+       Carrinho carrinho = new Carrinho();
+       Eletronico eletronico1 = new Eletronico("Eletrolux", 1500, 4);
+       eletronico1.setWt(220);
+       eletronico1.exibirInformacoes();
+       carrinho.adicionarAoCarrinho(eletronico1);
+       carrinho.adicionarAoCarrinho(roupa);
 
-        if (pagamento.realizarPagamento(total, "cartao")) {
-            pedido.concluirPedido();
-        } else {
-            pedido.cancelarPedido();
-        }
+       System.out.println("_*_*_*_*_*_*_*PRODUTO*_*_*_*_*_*_*_");
+       System.out.println();
+
+
+
+       carrinho.listarProdutos();
+
+       System.out.println("_*_*_*_*_*_*_*CARRINHO*_*_*_*_*_*_*_");
+       System.out.println();
+
+       System.out.println("Total da compra: " + carrinho.calcularTotal());
+
+       Pedido pedido = new Pedido(cliente, carrinho);
+       pedido.processarPedido();
+       pedido.concluirPedido();
+
+       System.out.println();
+       System.out.println("_*_*_*_*_*_*_*PAGAMENTO*_*_*_*_*_*_*_");
+
+       Pagamento pagamento = new Pagamento(carrinho, "Cartão de Débito");
+       pagamento.validarPagamento();
+       pagamento.processarPagamento();
+     //  pagamento.realizarPagamento();
     }
 }

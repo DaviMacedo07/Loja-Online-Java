@@ -3,21 +3,15 @@ package Classes;
 import abstractClass.Usuario;
 
 public class Vendedor extends Usuario {
-    private String cnpj;
+
     private double comissao;
+    private double valeReif;
 
-    public Vendedor(String nome, String email, String senha, String cnpj, double comissao) {
+
+    public Vendedor(String nome, String email, String senha, double comissao, double valeReif) {
         super(nome, email, senha);
-        this.cnpj = cnpj;
         this.comissao = comissao;
-    }
-
-    public String getCnpj() {
-        return cnpj;
-    }
-
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
+        this.valeReif = valeReif;
     }
 
     public double getComissao() {
@@ -28,9 +22,19 @@ public class Vendedor extends Usuario {
         this.comissao = comissao;
     }
 
+    public double getValeReif() {
+        return valeReif;
+    }
+
+    public void setValeReif(double valeReif) {
+        this.valeReif = valeReif;
+    }
+
     @Override
     public void exibirInformacoes() {
-        System.out.println("Vendedor: " + getNome() + ", Email: " + getEmail() +
-                ", CNPJ: " + cnpj + ", Comissão: " + comissao + "%");
+        System.out.println("Nome do Vendedor: " + getNome()
+        + ", Email: " + getEmail()
+        + ", Comissão do Vendedor: " + getComissao()
+        + ", Total do Vale Refeição: " + getValeReif());
     }
 }

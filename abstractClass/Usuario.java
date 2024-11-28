@@ -35,6 +35,5 @@ public abstract class Usuario {
         this.senha = senha;
     }
 
-    // Método abstrato para exibir informações do usuário
     public abstract void exibirInformacoes();
 }

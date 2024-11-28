@@ -4,9 +4,13 @@ import Classes.Carrinho;
 import Classes.Pedido;
 
 public interface Vendas {
-    void adicionarAoCarrinho(Carrinho carrinho);
+    void adicionarAoCarrinho();
 
-    void removerDoCarrinho(Carrinho carrinho);
+    void removerDoCarrinho();
 
-    void finalizarPedido(Pedido pedido);
+    void removerDoCarrinho(Produto produto);
+
+    void listarProdutos();
+
+    void adicionarAoCarrinho(Produto produto);
 }

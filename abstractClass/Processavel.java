@@ -1,7 +1,7 @@
 package abstractClass;
 
-interface Processavel {
-    boolean processarPagamento(double valor);
+public interface Processavel {
+    boolean processarPagamento();
     boolean validarPagamento();
 
     boolean realizarPagamento();

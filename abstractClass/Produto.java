@@ -1,25 +1,43 @@
 package abstractClass;
 
 public abstract class Produto {
-    private String nome;
+    private String marca;
     private double preco;
-    private int quantidade; // novo atributo
+    private int quantidade;
 
     public Produto(String nome, double preco, int quantidade) {
-        this.nome = nome;
+        this.marca = nome;
         this.preco = preco;
         this.quantidade = quantidade;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
 
     public double getPreco() {
         return preco;
     }
 
-    public int getQuantidade() { // novo getter
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
+
+    public int getQuantidade() {
         return quantidade;
     }
 
-    public void exibirInformacoes() {
-        System.out.println("Nome: " + nome + ", Preço: " + preco + ", Quantidade: " + quantidade);
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
+
+    public void exibirInformacoes() {
+        System.out.println("Nome: " + marca + ", Preço: " + preco + ", Quantidade: " + quantidade);
+    }
+
+
 }
