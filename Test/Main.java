@@ -24,6 +24,9 @@ public class Main {
        roupa.exibirInformacoes();
 
 
+       Produto produto = new Roupa("Hering", 250, 4, 'M', "Amarela");
+       // linha que eu coloco exemplo de try catch
+
        Carrinho carrinho = new Carrinho();
        Eletronico eletronico1 = new Eletronico("Eletrolux", 1500, 4);
        eletronico1.setWt(220);
@@ -46,7 +49,7 @@ public class Main {
        Pedido pedido = new Pedido(cliente, carrinho);
        pedido.processarPedido();
        pedido.concluirPedido();
-
+       carrinho.adicionarAoCarrinho(produto);
        System.out.println();
        System.out.println("_*_*_*_*_*_*_*PAGAMENTO*_*_*_*_*_*_*_");
 

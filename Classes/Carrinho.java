@@ -34,6 +34,16 @@ public class Carrinho implements Vendas {
             produtos.add(produto);
             System.out.println("Produto adicionado com sucesso!");
         }
+        if (produto == null) {
+            System.out.println("Erro: Produto não pode ser nulo.");
+            return;
+        }
+
+        try {
+            throw new RuntimeException("Simulação de erro ao adicionar produto");
+        } catch (Exception e) {
+            System.out.println("Erro inesperado ao adicionar produto: " + e.getMessage());
+        }
     }
 
     @Override
