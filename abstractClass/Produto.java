@@ -11,6 +11,9 @@ public abstract class Produto {
         this.quantidade = quantidade;
     }
 
+    protected Produto() {
+    }
+
     public String getMarca() {
         return marca;
     }

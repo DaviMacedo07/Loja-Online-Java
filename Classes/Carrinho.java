@@ -15,7 +15,7 @@ public class Carrinho implements Vendas {
     public double calcularTotal() {
         double total = 0.0;
         for (Produto produto : produtos) {
-            total += produto.getPreco();
+            total += produto.getPreco();  // Adiciona o preço de cada produto no total
         }
         return total;
     }
@@ -32,18 +32,18 @@ public class Carrinho implements Vendas {
     public void adicionarAoCarrinho(Produto produto) {
         if (produto != null) {
             produtos.add(produto);
-            System.out.println("Produto adicionado com sucesso!");
+            System.out.println(produto.getMarca() + " adicionado com sucesso!");
         }
         if (produto == null) {
             System.out.println("Erro: Produto não pode ser nulo.");
             return;
         }
 
-        try {
-            throw new RuntimeException("Simulação de erro ao adicionar produto");
-        } catch (Exception e) {
-            System.out.println("Erro inesperado ao adicionar produto: " + e.getMessage());
-        }
+//        try {
+//            throw new RuntimeException("Simulação de erro ao adicionar produto");
+//        } catch (Exception e) {
+//            System.out.println("Erro inesperado ao adicionar produto: " + e.getMessage());
+//        }
     }
 
     @Override
