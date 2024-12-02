@@ -1,8 +1,9 @@
 package Classes;
 
+import abstractClass.Desconto;
 import abstractClass.Produto;
 
-public class Roupa extends Produto {
+public class Roupa extends Produto implements Desconto {
 
     private char tamanho;
     private String cor;
@@ -35,5 +36,12 @@ public class Roupa extends Produto {
                 ",Preço: " + getPreco() +
                 ", Tamanho: " + getTamanho() +
                 ", Cor: " + getCor());
+    }
+
+    @Override
+    public double aplicarDesconto(double porcentagem) {
+        double desconto = getPreco() * (porcentagem / 100);
+        setPreco(getPreco() - desconto);
+        return getPreco();
     }
 }

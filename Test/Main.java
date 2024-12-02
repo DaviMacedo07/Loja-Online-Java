@@ -37,8 +37,9 @@ public class Main {
        System.out.println("_*_*_*_*_*_*_*PRODUTO*_*_*_*_*_*_*_");
        System.out.println("");
 
-
-
+       System.out.println("Preço da camisa SEM DESCONTO: " + roupa.getPreco());
+       roupa.aplicarDesconto(15);
+       System.out.println("Novo preço da camisa com o desconto: " + roupa.getPreco());
        carrinho.listarProdutos();
 
        System.out.println("_*_*_*_*_*_*_*CARRINHO*_*_*_*_*_*_*_");

@@ -2,6 +2,8 @@ package Classes;
 
 import abstractClass.Produto;
 import abstractClass.Vendas;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import java.util.ArrayList;
 
@@ -76,6 +78,24 @@ public class Carrinho implements Vendas {
             for (Produto produto : produtos) {
                 System.out.println("- " + produto.getMarca() + " | Preço: R$ " + produto.getPreco());
             }
+        }
+    }
+
+    public void exportarParaCSV(String caminhoArquivo) {
+        try (FileWriter writer = new FileWriter(caminhoArquivo)) {
+            // Cabeçalho da planilha
+            writer.append("Marca,Preço,Quantidade\n");
+
+            // Escrevendo os produtos
+            for (Produto produto : produtos) {
+                writer.append(produto.getMarca()).append(",")
+                        .append(String.valueOf(produto.getPreco())).append(",")
+                        .append(String.valueOf(produto.getQuantidade())).append("\n");
+            }
+
+            System.out.println("Arquivo CSV gerado com sucesso em: " + caminhoArquivo);
+        } catch (IOException e) {
+            System.out.println("Erro ao exportar para CSV: " + e.getMessage());
         }
     }
 }
